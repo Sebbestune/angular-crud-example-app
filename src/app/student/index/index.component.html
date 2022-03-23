@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Angular 13 CRUD Example - Tutsmake.com</h1>
+    <h1>Angular 13 Laravel example</h1>
    
     <a href="#" routerLink="/student/create/" class="btn btn-success">Create New Student</a>
      
@@ -16,8 +16,8 @@
         <td>{{ student.course }}</td>
         <td>
           <a href="#" [routerLink]="['/student/', student.id, 'view']" class="btn btn-info">View</a>
-          <a href="#" [routerLink]="['/student/', student.id, 'edit']" class="btn btn-primary">Edit</a>
-          <button type="button" (click)="deleteStudent(student.id)" class="btn btn-danger">Delete</button>
+          <a href="#" [routerLink]="['/student/', student.id, 'edit']" class="btn btn-info">Edit</a>
+          <button type="button" (click)="deleteStudent(student.id)" class="btn btn-info">Delete</button>
         </td>
       </tr>
     </table>

@@ -1,1 +1,50 @@
-<p>edit works!</p>
+<div class="container">
+  <h1>Update Student</h1>
+
+  <a href="#" routerLink="/student/index" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        formControlName="name"
+        id="name"
+        type="text"
+        [(ngModel)]="student.name"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['name'].touched && f['name'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['name'].errors && f['name'].errors['required']">
+          Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="course">Course</label>
+      <textarea
+        formControlName="course"
+        id="course"
+        type="text"
+        [(ngModel)]="student.course"
+        class="form-control"
+      >
+      </textarea>
+      <div
+        *ngIf="f['course'].touched && f['course'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['course'].errors && f['course'].errors['required']">
+          Course is required.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Update
+    </button>
+  </form>
+</div>

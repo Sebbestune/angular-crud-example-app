@@ -28,28 +28,28 @@ export class StudentService {
     )
   }
     
-  create(student): Observable<Student> {
+  create(student: any): Observable<Student> {
     return this.httpClient.post<Student>(this.apiURL + '/students/', JSON.stringify(student), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }  
     
-  find(id): Observable<Student> {
+  find(id: string | number): Observable<Student> {
     return this.httpClient.get<Student>(this.apiURL + '/students/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
-  update(id, student): Observable<Student> {
+  update(id: string | number, student: any): Observable<Student> {
     return this.httpClient.put<Student>(this.apiURL + '/students/' + id, JSON.stringify(student), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
     
-  delete(id){
+  delete(id: string | number){
     return this.httpClient.delete<Student>(this.apiURL + '/students/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
@@ -57,7 +57,7 @@ export class StudentService {
   }
      
    
-  errorHandler(error) {
+  errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;

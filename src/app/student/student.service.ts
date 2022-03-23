@@ -35,8 +35,8 @@ export class StudentService {
     )
   }  
     
-  find(id: string | number): Observable<Student> {
-    return this.httpClient.get<Student>(this.apiURL + '/students/' + id)
+  find(id: string | number): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(this.apiURL + '/students/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
